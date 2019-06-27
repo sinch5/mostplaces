@@ -1,0 +1,33 @@
+sudo: required
+
+language: java
+
+services:
+  - docker
+  
+before_install:
+    - chmod +x mvnw
+    - docker build -t sinch5/spring-cloud-config-server -f Dockerfile.dev .
+
+script:
+    - docker run sinch5/spring-cloud-config-server mvn test
+    
+after_success:
+    - docker build -t sinch5/spring-cloud-config-server .
+      #Loginto docker
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    #Take thos image and push them to gitgub
+    - docker push sinch5/spring-cloud-config-server
+    
+deploy:
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: spring-cloud-config-server
+    env: SpringCloudConfigServer-env
+    bucket_name: elasticbeanstalk-us-east-1-608067911170
+    bucket_path: config-server
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY

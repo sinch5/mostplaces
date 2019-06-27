@@ -1,0 +1,14 @@
+version: '3'
+services:    
+  
+    spring-cloud-config-server:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./spring-cloud-config-server
+          
+    netflix-eureka-naming-server:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./netflix-eureka-naming-server
+    
+  
