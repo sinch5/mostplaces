@@ -9,10 +9,10 @@ COPY pom.xml /build
 #Copy source code
 COPY src /build/src
 # Build application
-RUN mvn package
+RUN mvn -Dmaven.test.skip=true
 
 FROM openjdk:11-slim as runtime
-EXPOSE 8080
+EXPOSE 8761
 #Set app home folder
 ENV APP_HOME /app
 #Possibility to set JVM options (https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)

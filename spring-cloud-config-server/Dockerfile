@@ -9,7 +9,7 @@ COPY pom.xml /build
 #Copy source code
 COPY src /build/src
 # Build application
-RUN mvn package
+RUN mvn -Dmaven.test.skip=true package
 
 FROM openjdk:11-slim as runtime
 EXPOSE 8888
