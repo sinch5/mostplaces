@@ -1,0 +1,10 @@
+<settings>
+	<mirrors>
+		<mirror>
+			<id>imagej-mirror</id>
+			<name>ImageJ mirror</name>
+			<url>https://maven.imagej.net/content/groups/public/</url>
+			<mirrorOf>*</mirrorOf>
+		</mirror>
+	</mirrors>
+</settings>
