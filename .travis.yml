@@ -6,7 +6,7 @@ services:
   - docker
   
 before_install:
-    - chmod +x mvnw
+    #- chmod +x mvnw
     - docker build -t sinch5/spring-cloud-config-server -f Dockerfile.dev ./spring-cloud-config-server
     - docker build -t sinch5/spring-cloud-config-server -f Dockerfile.dev ./netflix-eureka-naming-server
 
