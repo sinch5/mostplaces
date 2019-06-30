@@ -3,16 +3,16 @@ services:
   
     spring-cloud-config-server:
         build:
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
             context: ./spring-cloud-config-server
         ports:
-          - '8761:8761'
+          - '8888:8888'
           
     netflix-eureka-naming-server:
         build:
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
             context: ./netflix-eureka-naming-server
         ports:
-          - '8888:8888'
+          - '8761:8761'
     
   
