@@ -5,7 +5,7 @@
 			"name":"spring-cloud-config-server",
 			"image":"sinch5/spring-cloud-config-server",
 			"hostname": "spring-cloud-config-server",
-			"essential": true,
+			"essential": false,
 			"memory": 128,
 			"portMappings": [
 				{
