@@ -27,7 +27,7 @@
 				}
 			],
 			"links": [
-				"spring-cloud-config-server", "netflix-eureka-naming-server"
+				"spring-cloud-config-server"
 			]
 		}
 	]
