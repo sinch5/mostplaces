@@ -9,8 +9,8 @@
 			"memory": 128,
 			"portMappings": [
 				{
-				  "hostPort": 5000,
-				  "containerPort": 5000
+				  "hostPort": 8888,
+				  "containerPort": 8888
 				}
 			  ]			
 		},
@@ -22,8 +22,8 @@
 			"memory": 128,
 			"portMappings": [
 				{
-				  "hostPort": 5001,
-				  "containerPort": 5000
+				  "hostPort": 8761,
+				  "containerPort": 8761
 				}
 			  ]			
 			
