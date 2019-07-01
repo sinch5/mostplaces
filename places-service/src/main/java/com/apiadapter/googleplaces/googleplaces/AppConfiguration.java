@@ -11,12 +11,6 @@ public class AppConfiguration {
     @Value("${base.googlemaps.url}")
     private String routes;
 
-    @Value("${places.url}")
-    private String directMatrixUrl;
-
-    @Value("${googlemaps.api.key}")
-    private String googlemapsApiKey;
-
     @Bean
     public WebClient getWebClient() {
         return  WebClient.create(routes);

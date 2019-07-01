@@ -36,12 +36,55 @@
 			"memory": 256,
 			"portMappings": [
 				{
-				  "hostPort": 80,
+				  "hostPort": 8081,
 				  "containerPort": 8081
 				}
 			  ]			
 			
+		},
+		{
+			"name":"place-details-service",
+			"image":"sinch5/place-details-service",
+			"hostname": "place-details-service",
+			"essential": false,
+			"memory": 256,
+			"portMappings": [
+				{
+				  "hostPort": 8082,
+				  "containerPort": 8082
+				}
+			  ]			
+			
+		},
+		{
+			"name":"distance-matrix-service",
+			"image":"sinch5/distance-matrix-service",
+			"hostname": "distance-matrix-service",
+			"essential": false,
+			"memory": 256,
+			"portMappings": [
+				{
+				  "hostPort": 8083,
+				  "containerPort": 8083
+				}
+			  ]			
+			
+		},		
+		{
+			"name":"path-finder-service",
+			"image":"sinch5/path-finder-service",
+			"hostname": "path-finder-service",
+			"essential": false,
+			"memory": 256,
+			"portMappings": [
+				{
+				  "hostPort": 80,
+				  "containerPort": 8080
+				}
+			  ]			
+			
 		}
+	
 	]
 		
 }
