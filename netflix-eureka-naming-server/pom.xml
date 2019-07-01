@@ -90,6 +90,7 @@
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
+                <version>2.22.0</version>
             </plugin>
 		</plugins>
 	</build>
