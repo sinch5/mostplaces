@@ -19,7 +19,7 @@
 			"image":"sinch5/netflix-eureka-naming-server",
 			"hostname": "netflix-eureka-naming-server",
 			"essential": false,
-			"memory": 128,
+			"memory": 256,
 			"portMappings": [
 				{
 				  "hostPort": 80,
