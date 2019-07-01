@@ -5,11 +5,11 @@
 			"name":"spring-cloud-config-server",
 			"image":"sinch5/spring-cloud-config-server",
 			"hostname": "spring-cloud-config-server",
-			"essential": false,
+			"essential": true,
 			"memory": 256,
 			"portMappings": [
 				{
-				  "hostPort": 8888,
+				  "hostPort": 80,
 				  "containerPort": 8888
 				}
 			  ]			
@@ -18,11 +18,11 @@
 			"name":"netflix-eureka-naming-server",
 			"image":"sinch5/netflix-eureka-naming-server",
 			"hostname": "netflix-eureka-naming-server",
-			"essential": true,
+			"essential": false,
 			"memory": 256,
 			"portMappings": [
 				{
-				  "hostPort": 80,
+				  "hostPort": 8761,
 				  "containerPort": 8761
 				}
 			  ]			
