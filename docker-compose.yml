@@ -14,5 +14,32 @@ services:
             context: ./netflix-eureka-naming-server
         ports:
           - '8761:8761'
+          
+    places-service:
+        build:
+            dockerfile: Dockerfile
+            context: ./places-service
+        ports:
+          - '8081:8081'
+          
+    place-details-service:
+        build:
+            dockerfile: Dockerfile
+            context: ./place-details-service
+        ports:
+          - '8082:8082'
     
+    path-finder-service:
+        build:
+            dockerfile: Dockerfile
+            context: ./path-finder-service
+        ports:
+          - '8080:8080'
+   
+    distance-matrix-service:
+        build:
+            dockerfile: Dockerfile
+            context: ./distance-matrix-service
+        ports:
+          - '8083:8083'      
   
