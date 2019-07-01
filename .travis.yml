@@ -9,19 +9,23 @@ before_install:
     #- chmod +x mvnw
     - docker build -t sinch5/spring-cloud-config-server -f ./spring-cloud-config-server/Dockerfile.dev ./spring-cloud-config-server
     - docker build -t sinch5/netflix-eureka-naming-server -f ./netflix-eureka-naming-server/Dockerfile.dev ./netflix-eureka-naming-server
+    - docker build -t sinch5/places-service -f ./places-service/Dockerfile.dev ./places-service
 
 script:
     - docker run sinch5/spring-cloud-config-server mvn test
     - docker run sinch5/netflix-eureka-naming-server mvn test
+    - docker run sinch5/places-service mvn test
     
 after_success:
     - docker build -t sinch5/spring-cloud-config-server ./spring-cloud-config-server
     - docker build -t sinch5/netflix-eureka-naming-server ./netflix-eureka-naming-server
+    - docker build -t sinch5/places-service ./places-service
       #Loginto docker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Take thos image and push them to gitgub
     - docker push sinch5/spring-cloud-config-server
     - docker push sinch5/netflix-eureka-naming-server
+    - docker push sinch5/places-service
     
 deploy:
     provider: elasticbeanstalk

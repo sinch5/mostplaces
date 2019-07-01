@@ -9,7 +9,7 @@
 			"memory": 256,
 			"portMappings": [
 				{
-				  "hostPort": 80,
+				  "hostPort": 8888,
 				  "containerPort": 8888
 				}
 			  ]			
@@ -24,6 +24,20 @@
 				{
 				  "hostPort": 8761,
 				  "containerPort": 8761
+				}
+			  ]			
+			
+		},
+		{
+			"name":"places-service",
+			"image":"sinch5/places-service",
+			"hostname": "places-service",
+			"essential": false,
+			"memory": 256,
+			"portMappings": [
+				{
+				  "hostPort": 80,
+				  "containerPort": 8081
 				}
 			  ]			
 			

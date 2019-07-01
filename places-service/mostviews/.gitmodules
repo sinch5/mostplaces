@@ -1,0 +1,4 @@
+[submodule "google-distance-matrix-api-adapter/mostviews"]
+	path = google-distance-matrix-api-adapter/mostviews
+	url = git@github.com:sinch5/mostviews.git
+	branch = master
