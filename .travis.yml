@@ -24,7 +24,7 @@ after_success:
     - docker build -t sinch5/spring-cloud-config-server ./spring-cloud-config-server
     - docker build -t sinch5/netflix-eureka-naming-server ./netflix-eureka-naming-server
     - docker build -t sinch5/places-service ./places-service
-    - docker build -t sinch5/place-details-service ./places-details-service
+    - docker build -t sinch5/place-details-service ./place-details-service
     - docker build -t sinch5/distance-matrix-service ./distance-matrix-service
       #Loginto docker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
