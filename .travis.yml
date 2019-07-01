@@ -15,8 +15,8 @@ script:
     - docker run sinch5/netflix-eureka-naming-server mvn test
     
 after_success:
-    - docker build -t sinch5/spring-cloud-config-server .
-    - docker build -t sinch5/netflix-eureka-naming-server .
+    - docker build -t sinch5/spring-cloud-config-server ./spring-cloud-config-server
+    - docker build -t sinch5/netflix-eureka-naming-server ./netflix-eureka-naming-server
       #Loginto docker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Take thos image and push them to gitgub
