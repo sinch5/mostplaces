@@ -12,6 +12,9 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./netflix-eureka-naming-server
+        depends_on:
+            spring-cloud-config-server:
+                condition: service_healthy
         ports:
           - '8761:8761'
           
@@ -19,6 +22,11 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./places-service
+        depends_on:
+            spring-cloud-config-server:
+                condition: service_healthy    
+            netflix-eureka-naming-server:
+                condition: service_healthy    
         ports:
           - '8081:8081'
           
@@ -26,6 +34,11 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./place-details-service
+        depends_on:
+            spring-cloud-config-server:
+                condition: service_healthy    
+            netflix-eureka-naming-server:
+                condition: service_healthy    
         ports:
           - '8082:8082'
     
@@ -33,6 +46,17 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./path-finder-service
+        depends_on:
+            spring-cloud-config-server:
+                condition: service_healthy    
+            netflix-eureka-naming-server:
+                condition: service_healthy 
+            place-details-service:
+                condition: service_healthy    
+            places-service:
+                condition: service_healthy    
+            distance-matrix-service:
+                condition: service_healthy    
         ports:
           - '8080:8080'
    
@@ -40,6 +64,11 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./distance-matrix-service
+        depends_on:
+            spring-cloud-config-server:
+                condition: service_healthy    
+            netflix-eureka-naming-server:
+                condition: service_healthy    
         ports:
           - '8083:8083'      
   
