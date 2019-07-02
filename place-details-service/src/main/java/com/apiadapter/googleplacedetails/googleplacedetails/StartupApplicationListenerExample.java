@@ -8,7 +8,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
- * 
+ *
  */
 @Component
 public class StartupApplicationListenerExample implements ApplicationListener<ContextRefreshedEvent> {
