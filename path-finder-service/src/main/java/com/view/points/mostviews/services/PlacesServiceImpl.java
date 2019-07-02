@@ -11,6 +11,8 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 import java.text.MessageFormat;
 
+import static com.view.points.mostviews.services.DistanceMatrixServiceImpl.ZUUL_GATEWAY;
+
 public class PlacesServiceImpl implements PlacesService {
 
     private final WebClient webClient;
@@ -26,8 +28,8 @@ public class PlacesServiceImpl implements PlacesService {
 
     public Mono<PlaceResponse> findByName(String name) {
 
-        ServiceInstance instance = loadBalancer.choose(PLACES_API);
-        URI storesUri = URI.create(String.format("http://%s:%s", instance.getHost(), instance.getPort()));
+        ServiceInstance instance = loadBalancer.choose(ZUUL_GATEWAY);
+        URI storesUri = URI.create(String.format("http://%s:%s/%s", instance.getHost(), instance.getPort(), PLACES_API));
 
         return webClient.get()
                 .uri(MessageFormat.format("{0}/place/{1}",storesUri,name))

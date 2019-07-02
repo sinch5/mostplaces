@@ -20,6 +20,8 @@ public class DistanceMatrixServiceImpl implements DistanceMatrixService {
 
     private static final String DISTANCE_MATRIX_API="google-distance-matrix-api-adapter";
 
+    public static final String ZUUL_GATEWAY = "netflix-zuul-api-gateway-server";
+
     private LoadBalancerClient loadBalancer;
 
     public DistanceMatrixServiceImpl(WebClient webClient, LoadBalancerClient loadBalancer) {
@@ -29,8 +31,8 @@ public class DistanceMatrixServiceImpl implements DistanceMatrixService {
 
     public Mono<DirectMatrixResponse> buildMatrix(String locations) {
 
-        ServiceInstance instance = loadBalancer.choose(DISTANCE_MATRIX_API);
-        URI storesUri = URI.create(String.format("http://%s:%s", instance.getHost(), instance.getPort()));
+        ServiceInstance instance = loadBalancer.choose(ZUUL_GATEWAY);
+        URI storesUri = URI.create(String.format("http://%s:%s/%s", instance.getHost(), instance.getPort(), DISTANCE_MATRIX_API));
 
         return webClient.get()
                 .uri(MessageFormat.format("{0}/routes/{1}",storesUri,locations))
