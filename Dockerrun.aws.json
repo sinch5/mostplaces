@@ -25,7 +25,10 @@
 				  "hostPort": 8761,
 				  "containerPort": 8761
 				}
-			  ]			
+			  ],
+			"links": [
+				"spring-cloud-config-server"
+			]			  
 			
 		},
 		{
@@ -39,7 +42,10 @@
 				  "hostPort": 8081,
 				  "containerPort": 8081
 				}
-			  ]			
+			  ],
+			"links": [
+				"netflix-eureka-naming-server","spring-cloud-config-server"
+			]			  
 			
 		},
 		{
@@ -53,7 +59,10 @@
 				  "hostPort": 8082,
 				  "containerPort": 8082
 				}
-			  ]			
+			  ],
+			"links": [
+				"netflix-eureka-naming-server","spring-cloud-config-server"
+			]	  			  
 			
 		},
 		{
@@ -67,7 +76,10 @@
 				  "hostPort": 8083,
 				  "containerPort": 8083
 				}
-			  ]			
+			  ],
+			"links": [
+				"netflix-eureka-naming-server","spring-cloud-config-server"
+			]				  
 			
 		},		
 		{
@@ -81,7 +93,10 @@
 				  "hostPort": 80,
 				  "containerPort": 8080
 				}
-			  ]			
+			  ],
+			"links": [
+				"netflix-eureka-naming-server","spring-cloud-config-server","distance-matrix-service","place-details-service","places-service"
+			]			  
 			
 		}
 	
