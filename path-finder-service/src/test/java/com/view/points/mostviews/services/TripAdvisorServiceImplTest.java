@@ -24,7 +24,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=TripAdvisorServiceImpl.class)
+@SpringBootTest(classes=TripAdvisorServiceImpl.class, properties = "spring.cloud.config.enabled=false")
 @ContextConfiguration(classes= TestConfig.class)
 
 public class TripAdvisorServiceImplTest {

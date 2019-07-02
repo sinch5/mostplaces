@@ -13,8 +13,7 @@ services:
             dockerfile: Dockerfile
             context: ./netflix-eureka-naming-server
         depends_on:
-            spring-cloud-config-server:
-                condition: service_healthy
+           - spring-cloud-config-server
         ports:
           - '8761:8761'
           
@@ -23,10 +22,8 @@ services:
             dockerfile: Dockerfile
             context: ./places-service
         depends_on:
-            spring-cloud-config-server:
-                condition: service_healthy    
-            netflix-eureka-naming-server:
-                condition: service_healthy    
+           - spring-cloud-config-server
+           - netflix-eureka-naming-server    
         ports:
           - '8081:8081'
           
@@ -35,10 +32,8 @@ services:
             dockerfile: Dockerfile
             context: ./place-details-service
         depends_on:
-            spring-cloud-config-server:
-                condition: service_healthy    
-            netflix-eureka-naming-server:
-                condition: service_healthy    
+           - spring-cloud-config-server
+           - netflix-eureka-naming-server  
         ports:
           - '8082:8082'
     
@@ -47,16 +42,11 @@ services:
             dockerfile: Dockerfile
             context: ./path-finder-service
         depends_on:
-            spring-cloud-config-server:
-                condition: service_healthy    
-            netflix-eureka-naming-server:
-                condition: service_healthy 
-            place-details-service:
-                condition: service_healthy    
-            places-service:
-                condition: service_healthy    
-            distance-matrix-service:
-                condition: service_healthy    
+           - spring-cloud-config-server
+           - netflix-eureka-naming-server
+           - place-details-service
+           - places-service 
+           - distance-matrix-service  
         ports:
           - '8080:8080'
    
@@ -65,10 +55,8 @@ services:
             dockerfile: Dockerfile
             context: ./distance-matrix-service
         depends_on:
-            spring-cloud-config-server:
-                condition: service_healthy    
-            netflix-eureka-naming-server:
-                condition: service_healthy    
+           - spring-cloud-config-server  
+           - netflix-eureka-naming-server   
         ports:
           - '8083:8083'      
   
