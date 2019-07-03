@@ -112,7 +112,7 @@
 				}
 			  ],
 			"links": [
-				"spring-cloud-config-server", "netflix-zuul-api-gateway-server"
+				"spring-cloud-config-server","netflix-eureka-naming-server","netflix-zuul-api-gateway-server"
 			]				  
 			
 		}
