@@ -18,13 +18,13 @@ before_install:
         
 
 script:
-    - docker run sinch5/spring-cloud-config-server mvn test
-    - docker run sinch5/netflix-eureka-naming-server mvn test
-    - docker run sinch5/netflix-zuul-api-gateway-server mvn test
-    - docker run sinch5/places-service mvn test
-    - docker run sinch5/place-details-service mvn test
-    - docker run sinch5/distance-matrix-service mvn test
-    - docker run sinch5/path-finder-service mvn test
+    - docker run sinch5/spring-cloud-config-server mvn test -q
+    - docker run sinch5/netflix-eureka-naming-server mvn test -q
+    - docker run sinch5/netflix-zuul-api-gateway-server mvn test -q
+    - docker run sinch5/places-service mvn test -q
+    - docker run sinch5/place-details-service mvn test -q
+    - docker run sinch5/distance-matrix-service mvn test -q
+    - docker run sinch5/path-finder-service mvn test -q
     
     
 after_success:
