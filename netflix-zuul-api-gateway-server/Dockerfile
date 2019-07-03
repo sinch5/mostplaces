@@ -6,7 +6,7 @@ WORKDIR /build
 #COPY settings.xml /root/.m2/
 COPY pom.xml /build
 #Download all required dependencies into one layer
-RUN mvn dependency:go-offline -B
+RUN mvn dependency:go-offline -B -q
 #Copy source code
 COPY src /build/src
 # Build application
