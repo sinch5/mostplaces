@@ -10,7 +10,7 @@ RUN mvn dependency:go-offline -B
 #Copy source code
 COPY src /build/src
 # Build application
-RUN mvn package
+RUN mvn package -q
 
 FROM openjdk:11-slim as runtime
 EXPOSE 8888

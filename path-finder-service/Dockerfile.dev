@@ -10,4 +10,4 @@ RUN mvn dependency:go-offline -B
 #Copy source code
 COPY src /build/src
 # Build application
-RUN mvn test
+RUN mvn test -q
