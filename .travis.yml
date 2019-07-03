@@ -13,6 +13,7 @@ before_install:
     - docker build -t sinch5/place-details-service -f ./place-details-service/Dockerfile.dev ./place-details-service
     - docker build -t sinch5/distance-matrix-service -f ./distance-matrix-service/Dockerfile.dev ./distance-matrix-service
     - docker build -t sinch5/path-finder-service -f ./path-finder-service/Dockerfile.dev ./path-finder-service    
+    - docker build -t sinch5/netflix-zuul-api-gateway-server -f ./netflix-zuul-api-gateway-server/Dockerfile.dev ./netflix-zuul-api-gateway-server    
 
 script:
     - docker run sinch5/spring-cloud-config-server mvn test
@@ -21,6 +22,7 @@ script:
     - docker run sinch5/place-details-service mvn test
     - docker run sinch5/distance-matrix-service mvn test
     - docker run sinch5/path-finder-service mvn test
+    - docker run sinch5/netflix-zuul-api-gateway-server mvn test
     
 after_success:
     - docker build -t sinch5/spring-cloud-config-server ./spring-cloud-config-server
@@ -29,6 +31,7 @@ after_success:
     - docker build -t sinch5/place-details-service ./place-details-service
     - docker build -t sinch5/distance-matrix-service ./distance-matrix-service
     - docker build -t sinch5/path-finder-service ./path-finder-service
+    - docker build -t sinch5/netflix-zuul-api-gateway-server ./netflix-zuul-api-gateway-server
       #Loginto docker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Take thos image and push them to gitgub
@@ -38,6 +41,7 @@ after_success:
     - docker push sinch5/place-details-service
     - docker push sinch5/distance-matrix-service
     - docker push sinch5/path-finder-service
+    - docker push sinch5/netflix-zuul-api-gateway-server
 deploy:
     provider: elasticbeanstalk
     region: us-east-1
