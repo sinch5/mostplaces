@@ -50,7 +50,7 @@ deploy:
     provider: elasticbeanstalk
     region: us-east-1
     app: mostviews
-    env: Mostviews-env-2
+    env: Mostviews-env
     bucket_name: elasticbeanstalk-us-east-1-608067911170
     bucket_path: config-server
     on:
