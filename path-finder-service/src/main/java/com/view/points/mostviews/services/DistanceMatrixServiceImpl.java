@@ -24,9 +24,6 @@ public class DistanceMatrixServiceImpl implements DistanceMatrixService {
 
     private LoadBalancerClient loadBalancer;
 
-    @Value("${eureka.client.service-url.default-zone}")
-    private String val;
-
     public DistanceMatrixServiceImpl(WebClient webClient, LoadBalancerClient loadBalancer) {
         this.loadBalancer = loadBalancer;
         this.webClient = webClient;
