@@ -32,6 +32,23 @@
 			
 		},
 		{
+			"name":"netflix-zuul-api-gateway-server",
+			"image":"sinch5/netflix-zuul-api-gateway-server",
+			"hostname": "netflix-zuul-api-gateway-server",
+			"essential": false,
+			"memory": 256,
+			"portMappings": [
+				{
+				  "hostPort": 8765,
+				  "containerPort": 8765
+				}
+			  ],
+			"links": [
+				"spring-cloud-config-server"
+			]			  
+			
+		},
+		{
 			"name":"places-service",
 			"image":"sinch5/places-service",
 			"hostname": "places-service",
@@ -95,7 +112,7 @@
 				}
 			  ],
 			"links": [
-				"spring-cloud-config-server","netflix-eureka-naming-server","distance-matrix-service","place-details-service","places-service"
+				"spring-cloud-config-server", "netflix-zuul-api-gateway-server"
 			]				  
 			
 		}
