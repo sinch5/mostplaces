@@ -44,7 +44,7 @@
 				}
 			  ],
 			"links": [
-				"spring-cloud-config-server","netflix-eureka-naming-server"
+				"spring-cloud-config-server","netflix-eureka-naming-server","places-service","place-details-service","distance-matrix-service","path-finder-service"
 			]			  
 			
 		},
