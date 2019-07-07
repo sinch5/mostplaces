@@ -17,7 +17,7 @@ EXPOSE 8888
 #Set app home folder
 ENV APP_HOME /app
 #Possibility to set JVM options (https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
-ENV JAVA_OPTS=""
+ENV JAVA_OPTS="-Dspring.profiles.active=prod"
 #Create base app folder
 RUN mkdir $APP_HOME
 #Create folder to save configuration files

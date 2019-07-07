@@ -43,8 +43,9 @@ public class GraphBuilderServiceImpl implements GraphBuilderService {
         for (int i=0; i< allPlaces.size(); i++) {
             JsonHelper.writeObject("places" + locations[i] +"Response.json", allPlaces.get(i).block());
         }*/
+
         var candidates = allPlaces.stream().
-                map(placeResponseMono -> placeResponseMono.block()).
+                map(placeResponseMono -> placeResponseMono.block()).peek(placeResponse -> System.out.println(placeResponse.getCandidates())).
                 map(placeResponse -> placeResponse.getCandidates().get(0)).
                 collect(Collectors.toList());
 
@@ -99,7 +100,7 @@ public class GraphBuilderServiceImpl implements GraphBuilderService {
         Period period = details.get(i).getResult().getOpening_hours().
                 map(OpeningHours::getPeriods).
                 filter(periods -> periods.size() > 1).
-                map(periods -> periods.get(now.getDayOfWeek().getValue())).
+                map(periods -> periods.get(now.getDayOfWeek().getValue() - 1)).
                 orElse(new Period());
         LocalTime closeTime= period.getClose().map(TimePoint::getTime).map(GraphBuilderServiceImpl::parseTime).orElse(LocalTime.of(0,0));
         LocalTime openTime= period.getOpen().map(TimePoint::getTime).map(GraphBuilderServiceImpl::parseTime).orElse(LocalTime.of(0,0));
