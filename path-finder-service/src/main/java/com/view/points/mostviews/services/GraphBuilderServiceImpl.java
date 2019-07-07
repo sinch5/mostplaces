@@ -98,10 +98,10 @@ public class GraphBuilderServiceImpl implements GraphBuilderService {
     private Location createLocation(DirectMatrixResponse directMatrixResponse, List<PlaceDetails> details, int i, LocalDateTime now) {
         PlaceDetails placeDetails = details.get(i);
         Period period = details.get(i).getResult().getOpening_hours().
-                map(OpeningHours::getPeriods).
-                filter(periods -> periods.size() > 1).
-                map(periods -> periods.get(now.getDayOfWeek().getValue() - 1)).
-                orElse(new Period());
+            map(OpeningHours::getPeriods).
+            filter(periods -> periods.size() > 1 && periods.size() > now.getDayOfWeek().getValue()).
+            map(periods -> periods.get(now.getDayOfWeek().getValue() - 1)).
+            orElse(new Period());
         LocalTime closeTime= period.getClose().map(TimePoint::getTime).map(GraphBuilderServiceImpl::parseTime).orElse(LocalTime.of(0,0));
         LocalTime openTime= period.getOpen().map(TimePoint::getTime).map(GraphBuilderServiceImpl::parseTime).orElse(LocalTime.of(0,0));
 

@@ -24,7 +24,6 @@ public class Location {
         this.name=name;
         this.address = address;
 
-
         closingTime =  LocalTime.of(0,0);
         openingTime =  LocalTime.of(0,0);
     }

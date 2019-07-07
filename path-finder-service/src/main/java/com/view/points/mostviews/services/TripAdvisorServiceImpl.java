@@ -19,7 +19,6 @@ public class TripAdvisorServiceImpl implements TripAdvisorService {
 
     private Map<Location, List<Location>> matrix;
 
-    private List<Integer> vertex = new ArrayList<>();
     private List<Integer> minLoc;
 
     public TripAdvisorServiceImpl(PathFinderService pathFinderService, GraphBuilderService graphBuilderService) {
@@ -30,8 +29,8 @@ public class TripAdvisorServiceImpl implements TripAdvisorService {
     @Override
     public List<Way> getBestRouteTrip(String places) {
         matrix = graphBuilderService.buildGraph(places);
-        vertex = IntStream.generate(() -> -1).limit(matrix.size() + 1).boxed().collect(Collectors.toList());
-        List<Way> ways =backtrack(vertex, 0, matrix.size());
+        List<Integer> vertex = IntStream.generate(() -> -1).limit(matrix.size() + 1).boxed().collect(Collectors.toList());
+        List<Way> ways = backtrack(vertex, 0, matrix.size());
         pathFinderService.calculateRoute(ways.get(0).getSource(), minLoc);
         return ways;
     }
